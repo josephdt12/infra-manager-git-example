@@ -5,7 +5,7 @@ module "im_workspace" {
   deployment_id = "im-example-deployment"
 
   tf_repo_type           = "GITHUB"
-  im_deployment_repo_uri = var.repository_url
+  im_deployment_repo_uri = "https://github.com/josephdt12/infra-manager-git-example.git"
   im_deployment_ref      = "main"
   infra_manager_sa_roles = ["roles/compute.networkAdmin"]
 
