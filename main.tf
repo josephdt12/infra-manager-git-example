@@ -1,5 +1,5 @@
 module "im_workspace" {
-  source = "../../modules/im_cloudbuild_workspace"
+  source = "terraform-google-modules/bootstrap/google//modules/im_cloudbuild_workspace"
 
   project_id    = var.project_id
   deployment_id = "im-example-deployment"
