@@ -8,7 +8,6 @@ module "im_workspace" {
   im_deployment_repo_uri = var.repository_url
   im_deployment_ref      = "main"
   infra_manager_sa_roles = ["roles/compute.networkAdmin"]
-  tf_version             = "1.5.7"
 
   // Found in the URL of your Cloud Build GitHub app configuration settings
   // https://cloud.google.com/build/docs/automating-builds/github/connect-repo-github?generation=2nd-gen#connecting_a_github_host_programmatically
