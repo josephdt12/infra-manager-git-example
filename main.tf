@@ -1,23 +1,8 @@
-module "im-module" {
-  source        = "terraform-google-modules/bootstrap/google//modules/im_cloudbuild_workspace"
-  project_id    = var.project_id
-  deployment_id = "im-example-deployment"
-
-  tf_repo_type           = "GITHUB"
-  im_deployment_repo_uri = "https://github.com/josephdt12/infra-manager-git-example.git"
-  im_deployment_ref      = "main"
-  im_tf_variables        = "project_id=${var.project_id}"
-  infra_manager_sa_roles = ["roles/compute.networkAdmin"]
-
-  github_app_installation_id = "47236181"
-  github_pat_secret          = "github-personal-token"
-}
-
 module "test-vpc-module" {
   source       = "terraform-google-modules/network/google"
   version      = "~> 9.0"
   project_id   = var.project_id
-  network_name = "${var.network_name}-suffix"
+  network_name = "${var.network_name}"
 
   subnets = [
     {
