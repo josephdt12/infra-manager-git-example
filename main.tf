@@ -2,7 +2,7 @@ module "test-vpc-module" {
   source       = "terraform-google-modules/network/google"
   version      = "~> 2.6"
   project_id   = var.project_id
-  network_name = "${var.network_name}"
+  network_name = "${var.network_name}-suffix"
 
   subnets = [
     {
