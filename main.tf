@@ -1,3 +1,21 @@
+module "im_workspace" {
+  source = "../../modules/im_cloudbuild_workspace"
+
+  project_id    = var.project_id
+  deployment_id = "im-example-deployment"
+
+  tf_repo_type           = "GITHUB"
+  im_deployment_repo_uri = var.repository_url
+  im_deployment_ref      = "main"
+  infra_manager_sa_roles = ["roles/compute.networkAdmin"]
+  tf_version             = "1.5.7"
+
+  // Found in the URL of your Cloud Build GitHub app configuration settings
+  // https://cloud.google.com/build/docs/automating-builds/github/connect-repo-github?generation=2nd-gen#connecting_a_github_host_programmatically
+  github_app_installation_id   = "47236181"
+  github_pat_secret            = "github-personal-token"
+}
+
 module "test-vpc-module" {
   source       = "terraform-google-modules/network/google"
   version      = "~> 9.0"
