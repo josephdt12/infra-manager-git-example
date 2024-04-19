@@ -1,8 +1,19 @@
+module "im-module" {
+  source                 = "terraform-google-modules/bootstrap/google//modules/im_cloudbuild_workspace"
+  project_id             = var.project_id
+  deployment_id          = var.deployment_id
+  im_deployment_repo_uri = var.im_deployment_repo_uri
+  im_deployment_ref      = var.im_deployment_ref
+
+  github_app_installation_id = var.github_app_installation_id
+  github_pat_secret          = var.github_pat_secret
+}
+
 module "test-vpc-module" {
   source       = "terraform-google-modules/network/google"
-  version      = "~> 2.6"
+  version      = "~> 9.1"
   project_id   = var.project_id
-  network_name = "${var.network_name}"
+  network_name = var.network_name
 
   subnets = [
     {
