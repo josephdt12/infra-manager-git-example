@@ -20,7 +20,7 @@ module "test-vpc-module" {
 
   subnets = [
     {
-      subnet_name   = "subnet-01"
+      subnet_name   = "subnet-01-suffix"
       subnet_ip     = "10.10.10.0/24"
       subnet_region = "us-west1"
     },
